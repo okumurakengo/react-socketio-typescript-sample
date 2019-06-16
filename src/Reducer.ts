@@ -1,4 +1,5 @@
-import { TChatState, TTopics } from "./Store";
+import { TTopics } from "./global";
+import { TChatState } from "./Store";
 
 interface IAddChat {
     type: "RECEIVE_MESSAGE";
@@ -9,7 +10,7 @@ interface IAddChat {
     };
 }
 export type IActions = IAddChat;
-// ↑アクションが増えたらこうする予定 
+// ↑アクションが増えたら↓こうする予定 
 //  type IActions = IAddChat | IUpdateAction | IDeleteAction
 
 export const reducer = (state: TChatState, action: IActions) => {

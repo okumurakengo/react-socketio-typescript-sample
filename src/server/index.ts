@@ -2,6 +2,8 @@ import * as express from "express";
 import * as http from "http";
 import * as socketio from "socket.io";
 
+import { ISendMsg } from "../global";
+
 const app: express.Express = express();
 const server: http.Server = http.createServer(app);
 const io: socketio.Server = socketio(server);
@@ -9,7 +11,7 @@ const io: socketio.Server = socketio(server);
 app.use(express.static("public"));
 
 io.on("connection", (socket: socketio.Socket) => {
-    socket.on('chat message', (msg: string) => {
+    socket.on('chat message', (msg: ISendMsg) => {
         io.emit('chat message', msg);
     });
 });

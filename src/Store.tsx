@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as io from "socket.io-client"
 
+import { TTopics, ISendMsg } from "./global";
 import { reducer, IActions } from "./Reducer";
 
 const initState = {
@@ -15,8 +16,6 @@ const initState = {
         {from: "bob", msg: "hello!"},
     ],
 }
-
-export type TTopics = "general" | "randam";
 
 export type TChatIitemState = {
     from: string,
@@ -34,12 +33,6 @@ export interface IState {
 }
 
 export const CTX = React.createContext<IState>({});
-
-interface ISendMsg {
-    from: string;
-    msg: string;
-    topic: TTopics;
-}
 
 let socket: SocketIOClient.Socket;
 

@@ -12,7 +12,8 @@ import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
-import { CTX, TTopics, IState, TChatIitemState } from "./Store"
+import { TTopics } from "./global";
+import { CTX, IState, TChatIitemState } from "./Store"
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: { 
