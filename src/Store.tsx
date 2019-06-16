@@ -1,22 +1,22 @@
-import * as React from 'react';
-import * as io from 'socket.io-client'
+import * as React from "react";
+import * as io from "socket.io-client"
 
-import { reducer, IActions } from './Reducer';
+import { reducer, IActions } from "./Reducer";
 
 const initState = {
     general: [
-        {from: 'alice', msg: 'hi!'},
-        {from: 'alice', msg: 'hi!'},
-        {from: 'alice', msg: 'hi!'},
+        {from: "alice", msg: "hi!"},
+        {from: "alice", msg: "hi!"},
+        {from: "alice", msg: "hi!"},
     ],
     randam: [
-        {from: 'bob', msg: 'hello!'},
-        {from: 'bob', msg: 'hello!'},
-        {from: 'bob', msg: 'hello!'},
+        {from: "bob", msg: "hello!"},
+        {from: "bob", msg: "hello!"},
+        {from: "bob", msg: "hello!"},
     ],
 }
 
-export type TTopics = 'general' | 'randam';
+export type TTopics = "general" | "randam";
 
 export type TChatIitemState = {
     from: string,
@@ -44,21 +44,21 @@ interface ISendMsg {
 let socket: SocketIOClient.Socket;
 
 const sendChatAction = (data: ISendMsg) => {
-    socket.emit('chat message', data);
+    socket.emit("chat message", data);
 }
 
 const Store: React.FC = ({ children }): JSX.Element => {
 
     if (!socket) {
-        socket = io(':3000');
-        socket.on('chat message', (data: ISendMsg) => {
-            dispatch({ type: 'RECEIVE_MESSAGE', payload: data });
+        socket = io(":3000");
+        socket.on("chat message", (data: ISendMsg) => {
+            dispatch({ type: "RECEIVE_MESSAGE", payload: data });
         });
     }
 
     const [allChats, dispatch] = React.useReducer<React.Reducer<TChatState, IActions>>(reducer, initState)
 
-    const users = ['alice', 'bob']; // サンプルなのでユーザー固定
+    const users = ["alice", "bob"]; // サンプルなのでユーザー固定
 
     return (
         <CTX.Provider value={{ allChats, sendChatAction, users }}>

@@ -1,44 +1,44 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { makeStyles, Theme, StyleRules } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Chip from '@material-ui/core/Chip';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import { makeStyles, Theme, StyleRules } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Chip from "@material-ui/core/Chip";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
-import { CTX, TTopics, IState, TChatIitemState } from './Store'
+import { CTX, TTopics, IState, TChatIitemState } from "./Store"
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: { 
-        margin: '50px',
+        margin: "50px",
         padding: theme.spacing(3, 2),
-        textAlign: 'center',
+        textAlign: "center",
     },
     flex: {
-        display: 'flex',
-        alignItems: 'center',
+        display: "flex",
+        alignItems: "center",
     },
     topicsWindow: {
-        width: '30%',
-        height: '300px',
-        borderRight: '1px solid grey',
+        width: "30%",
+        height: "300px",
+        borderRight: "1px solid grey",
     },
     chatWindow: {
-        width: '70%',
-        height: '300px',
-        padding: '20px',
+        width: "70%",
+        height: "300px",
+        padding: "20px",
     },
     chatBox: {
-        width: '85%',
+        width: "85%",
     },
     button: {
-        width: '15%',
+        width: "15%",
     },
 }))
 
@@ -51,7 +51,7 @@ const Dashboard: React.FC = (): JSX.Element => {
 
     const [activeTopics, changeActiveTopics] = React.useState<TTopics>(topics[0] as TTopics)
     const [selectValue, changeSelectValue] = React.useState<string>(users[0])
-    const [textValue, changeTextValue] = React.useState<string>('')
+    const [textValue, changeTextValue] = React.useState<string>("")
 
     return (
         <>
@@ -85,7 +85,7 @@ const Dashboard: React.FC = (): JSX.Element => {
                             allChats[activeTopics].map((chat: TChatIitemState, i: number) => (
                                 <div className={classes.flex} key={i}>
                                     <Chip label={chat.from} />
-                                    <Typography variant='body1' gutterBottom>{chat.msg}</Typography>
+                                    <Typography variant="body1" gutterBottom>{chat.msg}</Typography>
                                 </div>
                             ))
                         }

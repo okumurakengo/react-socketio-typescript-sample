@@ -1,7 +1,7 @@
-import { TChatState, TTopics } from './Store';
+import { TChatState, TTopics } from "./Store";
 
 interface IAddChat {
-    type: 'RECEIVE_MESSAGE';
+    type: "RECEIVE_MESSAGE";
     payload: { 
         from: string;
         msg: string; 
@@ -15,7 +15,7 @@ export type IActions = IAddChat;
 export const reducer = (state: TChatState, action: IActions) => {
     const {from, msg, topic} = action.payload
     switch(action.type) {
-        case 'RECEIVE_MESSAGE': 
+        case "RECEIVE_MESSAGE": 
             return {
                 ...state,
                 [topic]: [
