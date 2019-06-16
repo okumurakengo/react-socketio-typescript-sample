@@ -1,5 +1,6 @@
 const nodeExternals = require("webpack-node-externals");
 const NodemonPlugin = require("nodemon-webpack-plugin");
+const OpenBrowserPlugin = require("open-browser-webpack-plugin");
 
 const clientConfig = {
     mode: "development",
@@ -15,8 +16,11 @@ const clientConfig = {
             exclude: /node_modules/,
         }]
     },
+    plugins: [
+        new OpenBrowserPlugin({ url: "http://localhost:3000" }),
+    ],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js']
+        extensions: [".ts", ".tsx", ".js"]
     },
 };
 
