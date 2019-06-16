@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@material-ui/core": "^4.1.1",
+    "express": "^4.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/node": "^12.0.8",
+    "@types/react": "^16.8.20",
+    "@types/react-dom": "^16.8.4",
+    "@types/socket.io": "^2.1.2",
+    "@types/socket.io-client": "^1.4.32",
+    "nodemon-webpack-plugin": "^4.0.8",
+    "ts-loader": "^6.0.2",
+    "typescript": "^3.5.2",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
